@@ -10,6 +10,7 @@ import java.util.Random;
 public class WordGenerator
 {
     private ArrayList<String> words;
+    private Random rand;
 
     public WordGenerator()
     {
@@ -36,7 +37,7 @@ public class WordGenerator
     }
 
     public String generateWord(){
-        Random rand = new Random();
+        rand = new Random();
         int index = rand.nextInt(words.size());
         return words.get(index);
     }

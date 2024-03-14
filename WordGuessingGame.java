@@ -11,10 +11,13 @@ public class WordGuessingGame
     private String guessedWord;
     private int numberOfTries;
     private InputReader reader;
+    private WordGenerator wordGenerator;
+
     public WordGuessingGame()
     {
-        this.hiddenWord = "abc";
-        this.guessedWord = "___";
+        this.wordGenerator = new WordGenerator();
+        this.hiddenWord = wordGenerator.generateWord();
+        initializeGuessedWord();
         this.numberOfTries = 0;
         this.reader = new InputReader();
     }
@@ -39,6 +42,13 @@ public class WordGuessingGame
         System.out.println("Bem Vindo!");
     }
 
+    private void initializeGuessedWord(){
+        guessedWord = "";
+        for(int i=0; i<hiddenWord.length(); i++){
+            guessedWord += "_";
+        }
+    }
+
     private boolean guess(char letter){
         boolean found = false;
         for(int i=0; i<hiddenWord.length(); i++){
@@ -51,7 +61,7 @@ public class WordGuessingGame
     }
 
     private void showResult(){
-        System.out.println("Parabéns! Acertou a palavra em " + numberOfTries + "tentativas");
+        System.out.println("Parabéns! Acertou a palavra em " + numberOfTries + " tentativas");
     }
 
     public void play(){
