@@ -78,4 +78,10 @@ public class WordGuessingGame
         }
         showResult();
     }
+
+    public void reset(){
+        hiddenWord = wordGenerator.generateWord();
+        initializeGuessedWord();
+        numberOfTries = 0;
+    }
 }
