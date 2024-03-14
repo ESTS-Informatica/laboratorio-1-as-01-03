@@ -13,7 +13,7 @@ public class WordGuessingGame
     public WordGuessingGame()
     {
         this.hiddenWord = "abc";
-        this.guessedWord = "Word";
+        this.guessedWord = "___";
         this.numberOfTries = 0;
     }
 
